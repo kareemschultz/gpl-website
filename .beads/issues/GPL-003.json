@@ -1,0 +1,35 @@
+{
+  "id": "GPL-003",
+  "title": "Database Schema Extensions",
+  "description": "Extend database schema with GPL-specific tables for content management, forms, and audit logging",
+  "category": "database",
+  "priority": "high",
+  "status": "todo",
+  "points": 5,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Add news table", "done": false },
+    { "task": "Add faqs table", "done": false },
+    { "task": "Add pages table", "done": false },
+    { "task": "Add contact_submissions table", "done": false },
+    { "task": "Add service_requests table", "done": false },
+    { "task": "Add feedback table", "done": false },
+    { "task": "Add content_versions table", "done": false },
+    { "task": "Add audit_logs table", "done": false },
+    { "task": "Add emergency_contacts table", "done": false },
+    { "task": "Generate migrations", "done": false },
+    { "task": "Run migrations", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "All tables created with proper types",
+    "Foreign key relationships defined",
+    "Indexes on frequently queried columns",
+    "Migrations generated successfully",
+    "Migrations run without errors"
+  ],
+  "blockers": [],
+  "notes": "Use Drizzle ORM with strict TypeScript types"
+}

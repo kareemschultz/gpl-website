@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "projectName": "gpl-website",
+  "trackingLevel": "full",
+  "pbsEnabled": true,
+  "currentSprint": "sprint-001",
+  "issuePrefix": "GPL",
+  "priorities": ["critical", "high", "medium", "low"],
+  "statuses": ["backlog", "todo", "in-progress", "review", "done"],
+  "categories": [
+    "infrastructure",
+    "frontend",
+    "backend",
+    "database",
+    "auth",
+    "testing",
+    "documentation",
+    "devops"
+  ],
+  "constitutionalRequirements": {
+    "strictTypeScript": true,
+    "noAnyTypes": true,
+    "testingRequired": true,
+    "documentationRequired": true
+  },
+  "created": "2026-01-11",
+  "lastUpdated": "2026-01-11"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "sprint-001",
+  "name": "Infrastructure & Foundation",
+  "goal": "Set up project infrastructure, constitutional compliance, and begin MVP development with emergency contacts as highest priority",
+  "startDate": "2026-01-11",
+  "endDate": "2026-01-18",
+  "status": "active",
+  "issues": [
+    "GPL-001",
+    "GPL-002",
+    "GPL-003",
+    "GPL-004",
+    "GPL-005",
+    "GPL-006"
+  ],
+  "completedIssues": [],
+  "metrics": {
+    "totalPoints": 21,
+    "completedPoints": 0,
+    "velocity": null
+  },
+  "retrospective": null
+}

@@ -1,0 +1,31 @@
+{
+  "id": "GPL-005",
+  "title": "Core Pages Implementation",
+  "description": "Create core informational pages: services, safety, contact, and FAQ",
+  "category": "frontend",
+  "priority": "high",
+  "status": "todo",
+  "points": 5,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Create services page", "done": false },
+    { "task": "Create safety page (CRITICAL)", "done": false },
+    { "task": "Create contact page with form", "done": false },
+    { "task": "Create FAQ page with accordion", "done": false },
+    { "task": "Add Zod validation to forms", "done": false },
+    { "task": "Connect forms to backend API", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "All pages use consistent layout",
+    "Safety page has emergency contacts prominently",
+    "Contact form validates and submits",
+    "FAQ accordion works with search",
+    "All pages mobile responsive",
+    "No TypeScript errors"
+  ],
+  "blockers": ["GPL-003"],
+  "notes": "Use content from GPL_CONTENT_DATA.md and GPL_FAQ_DATABASE.md"
+}

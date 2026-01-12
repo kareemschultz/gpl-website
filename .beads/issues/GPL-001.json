@@ -1,0 +1,27 @@
+{
+  "id": "GPL-001",
+  "title": "Project Infrastructure Setup",
+  "description": "Create project infrastructure files for constitutional compliance including PROJECT_STATUS.md, Beads tracking system, and ARCHITECTURE.md",
+  "category": "infrastructure",
+  "priority": "critical",
+  "status": "in-progress",
+  "points": 3,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Create PROJECT_STATUS.md", "done": true },
+    { "task": "Initialize Beads tracking (.beads/ folder)", "done": true },
+    { "task": "Create ARCHITECTURE.md", "done": false },
+    { "task": "Verify constitutional compliance", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "PROJECT_STATUS.md exists with current status",
+    ".beads/ folder structure initialized",
+    "ARCHITECTURE.md documents tech decisions",
+    "All constitutional requirements documented"
+  ],
+  "blockers": [],
+  "notes": "This is the foundation for proper PBS tracking"
+}

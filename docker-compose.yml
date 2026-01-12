@@ -1,0 +1,118 @@
+# Production Docker Compose for VPS deployment
+# GPL Website - Full Stack Setup
+
+services:
+  # Main application
+  app:
+    build: .
+    container_name: gpl-website-app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=${DATABASE_URL}
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+      - BETTER_AUTH_BASE_URL=${BETTER_AUTH_BASE_URL}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    depends_on:
+      - postgres
+    volumes:
+      - app_logs:/app/logs
+    networks:
+      - gpl_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gpl-website.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.gpl-website.entrypoints=websecure"
+      - "traefik.http.routers.gpl-website.tls.certresolver=letsencrypt"
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: gpl-website-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-gpl_website}
+      - POSTGRES_USER=${POSTGRES_USER:-gpl_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/pgdata
+      - ./database/init:/docker-entrypoint-initdb.d
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    networks:
+      - gpl_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-gpl_user} -d ${POSTGRES_DB:-gpl_website}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for caching (optional but recommended)
+  redis:
+    image: redis:7-alpine
+    container_name: gpl-website-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass "${REDIS_PASSWORD:-}"
+    volumes:
+      - redis_data:/data
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - gpl_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Traefik reverse proxy (optional - for multiple domains)
+  traefik:
+    image: traefik:v3.0
+    container_name: gpl-website-traefik
+    restart: unless-stopped
+    command:
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_acme:/acme.json
+    networks:
+      - gpl_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
+
+# Networks
+networks:
+  gpl_network:
+    driver: bridge
+
+# Volumes
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  app_logs:
+    driver: local
+  traefik_acme:
+    driver: local

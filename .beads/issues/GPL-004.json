@@ -1,0 +1,31 @@
+{
+  "id": "GPL-004",
+  "title": "Homepage Redesign",
+  "description": "Redesign homepage with GPL branding, hero section, service highlights, and news feed",
+  "category": "frontend",
+  "priority": "high",
+  "status": "todo",
+  "points": 3,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Create hero section with GPL branding", "done": false },
+    { "task": "Add service highlights section", "done": false },
+    { "task": "Add latest news section", "done": false },
+    { "task": "Add quick links section", "done": false },
+    { "task": "Ensure emergency contacts visible", "done": false },
+    { "task": "Mobile responsive design", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "GPL branding colors applied (Maia theme)",
+    "Hero section with company tagline",
+    "Service cards with icons",
+    "News feed shows latest 3 articles",
+    "Emergency contacts prominently displayed",
+    "Fully responsive on mobile"
+  ],
+  "blockers": ["GPL-002"],
+  "notes": "Follow shadcn/ui patterns with Maia theme"
+}

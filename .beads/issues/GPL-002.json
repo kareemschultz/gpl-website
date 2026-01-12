@@ -1,0 +1,32 @@
+{
+  "id": "GPL-002",
+  "title": "Emergency Contacts Infrastructure",
+  "description": "Implement emergency contacts system visible on EVERY page - this is a CRITICAL SAFETY REQUIREMENT",
+  "category": "frontend",
+  "priority": "critical",
+  "status": "todo",
+  "points": 5,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Create emergency contacts data structure", "done": false },
+    { "task": "Build EmergencyContacts component", "done": false },
+    { "task": "Build EmergencyBanner component", "done": false },
+    { "task": "Update root layout with emergency contacts in header", "done": false },
+    { "task": "Add emergency contacts to footer", "done": false },
+    { "task": "Test visibility on all routes", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "Emergency contacts visible in header dropdown",
+    "Emergency contacts visible in footer",
+    "Dismissible emergency banner on homepage",
+    "Contacts visible on mobile devices",
+    "Demerara: 0475, 226-2600 displayed",
+    "Berbice: 333-2186 displayed",
+    "Essequibo contacts displayed"
+  ],
+  "blockers": [],
+  "notes": "HIGHEST PRIORITY - This is a life-safety feature"
+}

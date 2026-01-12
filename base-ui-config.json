@@ -1,0 +1,21 @@
+{
+"componentLibrary": "base-ui",
+"version": "latest",
+"description": "Base UI component library configuration",
+"dependencies": {
+"@base-ui/react": "^0.1.0"
+},
+"devDependencies": {
+"@types/base-ui": "^0.1.0"
+},
+"config": {
+"tailwind": {
+"plugins": ["@base-ui/react/tailwind"]
+},
+"typescript": {
+"paths": {
+"@/components/ui/*": ["./src/components/ui/*"]
+}
+}
+}
+}

@@ -1,0 +1,33 @@
+{
+  "id": "GPL-006",
+  "title": "shadcn/ui Components Installation",
+  "description": "Install required shadcn/ui components for the MVP",
+  "category": "frontend",
+  "priority": "medium",
+  "status": "todo",
+  "points": 2,
+  "assignee": "claude",
+  "sprint": "sprint-001",
+  "created": "2026-01-11",
+  "updated": "2026-01-11",
+  "tasks": [
+    { "task": "Install input component", "done": false },
+    { "task": "Install form component", "done": false },
+    { "task": "Install card component", "done": false },
+    { "task": "Install dialog component", "done": false },
+    { "task": "Install select component", "done": false },
+    { "task": "Install label component", "done": false },
+    { "task": "Install alert component", "done": false },
+    { "task": "Install textarea component", "done": false },
+    { "task": "Install accordion component", "done": false },
+    { "task": "Install dropdown-menu component", "done": false }
+  ],
+  "acceptanceCriteria": [
+    "All components installed via shadcn CLI",
+    "Components use Maia theme colors",
+    "No TypeScript errors",
+    "Components render correctly"
+  ],
+  "blockers": [],
+  "notes": "Use bunx shadcn@latest add <component>"
+}
