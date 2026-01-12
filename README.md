@@ -1,189 +1,306 @@
-# gpl-website
-A gpl website application
-## 🚀 Tech Stack
-This project was created with [KareTech Stack](https://github.com/kareemschultz/karetech-stack), an enhanced Better-T-Stack scaffold with modern tooling and DevOps built-in.
-### Frontend
-- **React 18** with TypeScript
-- **TanStack Router** for file-based routing
-- **TanStack Query** for server state management
-- **Tailwind CSS** for styling
-- **shadcn/ui** components (maia theme)
-- **Vite** for lightning-fast development
-### Backend
-- **Hono.js** - Ultra-fast web framework
-- **PostgreSQL** database
-- **Drizzle ORM** for type-safe database operations
-- **oRPC** for type-safe API calls
+# GPL Website
 
-- **Better Auth** with email, github providers
-### DevOps & Quality
-- **Playwright** for E2E testing
+**Official Website for Guyana Power & Light Inc.**
 
-- **Vitest** for unit testing
-- **Docker** for containerization
-- **Vercel Analytics** for insights
-- **Sentry** for error tracking
-## 🛠️ Getting Started
+A modern, responsive web application for GPL customers to access services, report outages, view safety information, and manage their electricity accounts.
+
+[![Build Status](https://github.com/kareemschultz/gpl-website/actions/workflows/test.yml/badge.svg)](https://github.com/kareemschultz/gpl-website/actions)
+
+## 🚨 Emergency Contacts
+
+**ALWAYS VISIBLE ON EVERY PAGE**
+
+| Region | Primary | Secondary |
+|--------|---------|-----------|
+| **Demerara** | 0475 | 226-2600 |
+| **Berbice** | 333-2186 | - |
+| **Essequibo** | 771-4244 | - |
+
+---
+
+## ✨ Features
+
+### Public Features
+- **Homepage** - Company overview, quick links, service highlights
+- **Services** - Complete list of GPL services and how to access them
+- **Safety** - Critical electrical safety information and guidelines
+- **Contact** - Multiple contact forms (general inquiries, service requests, outage reports, streetlight issues, feedback)
+- **FAQ** - Categorized frequently asked questions
+
+### Customer Portal (Coming Soon)
+- View and pay bills online
+- Track service requests
+- Receive outage notifications
+
+### Admin Panel
+- Dashboard with real-time statistics
+- FAQ management (CRUD)
+- News article management
+- Emergency contacts management
+- Contact submissions viewer
+- Service requests tracking
+- Customer feedback management
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Runtime** | [Bun](https://bun.sh) |
+| **Frontend** | React 18 + TypeScript |
+| **Routing** | TanStack Router (file-based) |
+| **Backend** | Hono.js |
+| **Database** | PostgreSQL + Drizzle ORM |
+| **Auth** | Better Auth (email + GitHub OAuth) |
+| **UI** | shadcn/ui + Tailwind CSS |
+| **Testing** | Playwright (E2E) + Vitest (Unit) |
+| **Deployment** | Docker + GitHub Actions |
+
+---
+
+## 🚀 Quick Start
+
 ### Prerequisites
-- [Bun](https://bun.sh) (recommended) or Node.js 18+
+- [Bun](https://bun.sh) v1.0+ (recommended) or Node.js 18+
+- PostgreSQL 14+
+
 ### Installation
-1. Clone the repository:
+
 ```bash
-git clone <your-repo-url>
+# Clone the repository
+git clone https://github.com/kareemschultz/gpl-website.git
 cd gpl-website
-```
-2. Install dependencies:
-```bash
+
+# Install dependencies
 bun install
-```
-3. Set up your database:
-```bash
+
+# Set up environment
 cp .env.example .env
 # Edit .env with your database credentials
-bun db:generate
-bun db:migrate
+
+# Run database migrations
+bun run db:migrate
+
+# Seed with GPL content
+bun run db:seed
+
+# Start development server
+bun run dev
 ```
-4. Start the development server:
-```bash
-bun dev
-```
-5. Open your browser to [http://localhost:5173](http://localhost:5173)
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
 ## 📜 Available Scripts
+
 ### Development
-- `bun dev` - Start development server
-- `bun build` - Build for production
-- `bun preview` - Preview production build locally
-- `bun clean` - Clean build artifacts
-### Code Quality
-- `bun typecheck` - Run TypeScript type checking
-- `bun lint` - Run ESLint
-- `bun lint:fix` - Fix ESLint errors automatically
-- `bun format` - Format code with Prettier
-- `bun format:check` - Check code formatting
-### Testing
-- `bun test` - Run Playwright E2E tests
-- `bun test:ui` - Run Playwright with UI mode
-- `bun test:debug` - Debug Playwright tests
-- `bun test:unit` - Run unit tests with Vitest
-- `bun test:unit:ui` - Run unit tests with Vitest UI
-- `bun test:all` - Run all tests
+```bash
+bun dev          # Start dev server with HMR
+bun build        # Build for production
+bun preview      # Preview production build
+```
+
 ### Database
-- `bun db:generate` - Generate Drizzle migrations
-- `bun db:migrate` - Run database migrations
-- `bun db:push` - Push schema changes (development)
-- `bun db:studio` - Open Drizzle Studio
-- `bun db:seed` - Seed database with sample data
-### Docker
-- `bun docker:build` - Build Docker image
-- `bun docker:run` - Run Docker container
-- `bun docker:dev` - Run development environment with Docker Compose
+```bash
+bun run db:generate  # Generate migrations from schema
+bun run db:migrate   # Run pending migrations
+bun run db:push      # Push schema (dev only)
+bun run db:studio    # Open Drizzle Studio
+bun run db:seed      # Seed with GPL data
+```
+
+### Testing
+```bash
+bun run test         # Run Playwright E2E tests
+bun run test:ui      # Run with Playwright UI
+bun run test:unit    # Run Vitest unit tests
+```
+
+### Code Quality
+```bash
+bun run typecheck    # TypeScript type checking
+bun run lint         # ESLint
+bun run format       # Prettier formatting
+```
+
+---
+
 ## 📂 Project Structure
+
 ```
 gpl-website/
-├── public/                  # Static assets
 ├── src/
-│   ├── components/          # Reusable UI components
-│   ├── lib/                 # Utility functions and configs
-│   ├── routes/              # TanStack Router routes
-│   ├── db/                  # Database schema and migrations
-│   ├── auth/                # Authentication configuration
-│   ├── api/                 # oRPC API routes
-│   ├── index.css            # Global styles
-│   └── main.tsx             # Application entry point
-├── tests/                   # Playwright E2E tests
-├── __tests__/              # Unit tests
-├── Dockerfile               # Docker configuration
-├── tailwind.config.js       # Tailwind CSS configuration
-├── vite.config.ts           # Vite configuration
-└── package.json
-```
-## 🗄️ Database
-This project uses PostgreSQL with Drizzle ORM. Make sure you have PostgreSQL installed and running.
-### Environment Variables
-```env
-DATABASE_URL=postgresql://username:password@localhost:5432/dbname
+│   ├── components/
+│   │   ├── auth/           # Auth provider & hooks
+│   │   └── ui/             # shadcn/ui components (29)
+│   ├── routes/
+│   │   ├── __root.tsx      # Root layout (emergency contacts in header/footer)
+│   │   ├── index.tsx       # Homepage
+│   │   ├── services.tsx    # Services page
+│   │   ├── safety.tsx      # Safety information
+│   │   ├── contact.tsx     # Contact forms
+│   │   ├── faq.tsx         # FAQ page
+│   │   ├── auth/           # Login & Register
+│   │   └── admin/          # Admin panel pages
+│   ├── db/
+│   │   ├── schema.ts       # Database schema (13 tables, 6 enums)
+│   │   ├── migrations/     # Drizzle migrations
+│   │   └── seed.ts         # GPL content seeder
+│   ├── server/
+│   │   ├── index.ts        # Hono server + auth handler
+│   │   └── router.ts       # API routes
+│   └── lib/
+│       ├── auth.ts         # Better Auth server config
+│       ├── auth-client.ts  # Better Auth client
+│       └── emergency-contacts.ts  # Emergency contact data
+├── tests/
+│   └── e2e/                # Playwright E2E tests
+├── .beads/                 # Project tracking (Beads system)
+└── docs/                   # Additional documentation
 ```
 
-## 🔐 Authentication
-This project uses Better Auth for authentication with the following providers:
-- email- github
-### Environment Variables
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file with:
+
 ```env
-BETTER_AUTH_SECRET=your-secret-key
-BETTER_AUTH_URL=http://localhost:5173
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/gpl_website
+
+# Authentication
+BETTER_AUTH_SECRET=your-secret-key-min-32-chars
+BETTER_AUTH_BASE_URL=http://localhost:5173
+
+# OAuth (optional)
 GITHUB_CLIENT_ID=your-github-client-id
 GITHUB_CLIENT_SECRET=your-github-client-secret
-
-
-
 ```
-## 🧪 Testing
-### Playwright E2E Tests
+
+See `.env.example` for all available options.
+
+---
+
+## 🗄️ Database Schema
+
+### Core Tables
+- `users` - Customer accounts
+- `sessions` - Auth sessions
+- `accounts` - OAuth provider links
+- `faqs` - FAQ entries with categories
+- `news` - News articles
+- `emergency_contacts` - Regional emergency numbers
+
+### Service Tables
+- `contact_submissions` - Contact form submissions
+- `service_requests` - New connections, disconnections, etc.
+- `outage_reports` - Power outage reports
+- `streetlight_reports` - Streetlight issues
+- `feedback` - Customer feedback with ratings
+
+### Enums
+- `faq_category` - billing, services, outages, safety, account, general
+- `submission_status` - pending, in_progress, resolved, closed
+- `service_request_type` - new_connection, disconnection, reconnection, etc.
+- `feedback_type` - complaint, suggestion, compliment, general
+- `streetlight_issue` - not_working, flickering, damaged, other
+
+---
+
+## 🐳 Docker Deployment
+
 ```bash
-# Run tests
-bun test
-# Run tests with UI mode
-bun test:ui
-# Run tests in debug mode
-bun test:debug
-# Update snapshots
-bun test:update
-```
-## 🐳 Docker
-### Development with Docker
-```bash
-# Build and run with Docker Compose
-bun docker:dev
-# Or manually
+# Build image
 docker build -t gpl-website .
-docker run -p 3000:3000 gpl-website
-```
-## 📊 Monitoring
-### Vercel Analytics
-This project includes Vercel Analytics for performance monitoring. Deploy to Vercel to automatically enable analytics.
 
-### Sentry Error Tracking
-Add your Sentry DSN to the environment variables:
-```env
-VITE_SENTRY_DSN=https://your-dsn@sentry.io/project-id
+# Run with docker-compose
+docker-compose up -d
+
+# Or run directly
+docker run -p 3000:3000 \
+  -e DATABASE_URL=postgresql://... \
+  -e BETTER_AUTH_SECRET=... \
+  gpl-website
 ```
 
-## 🚀 Deployment
-### Docker Deployment
-The project includes a production-ready Dockerfile:
-```bash
-docker build -t gpl-website .
-docker run -p 3000:3000 gpl-website
-```
-### Vercel (Recommended)
-```bash
-# Install Vercel CLI
-bun add -g vercel
-# Deploy
-vercel
-```
-### Netlify
-```bash
-# Build the project
-bun build
-# Deploy the dist/ folder to Netlify
-```
+---
+
+## 📊 GPL Branding
+
+The website uses GPL's official color scheme:
+
+| Color | HSL | Usage |
+|-------|-----|-------|
+| **GPL Green** | `142 76% 36%` | Primary actions, links |
+| **GPL Gold** | `45 93% 47%` | Accents, highlights |
+| **Emergency Red** | `0 84% 50%` | Emergency info, alerts |
+
+Dark mode is fully supported with adjusted color values.
+
+---
+
 ## 📚 Documentation
-- [KareTech Stack](https://github.com/kareemschultz/karetech-stack) - Project scaffold
-- [Better-T-Stack](https://better-t-stack.dev) - Base stack documentation
-- [TanStack Router](https://tanstack.com/router) - Routing
-- [TanStack Query](https://tanstack.com/query) - Server state management
-- [Tailwind CSS](https://tailwindcss.com) - Styling
-- [shadcn/ui](https://ui.shadcn.com) - UI components
-- [Drizzle ORM](https://orm.drizzle.team) - Database ORM
-- [Playwright](https://playwright.dev) - E2E testing
+
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - Technical architecture
+- [PROJECT_STATUS.md](./PROJECT_STATUS.md) - Current status & completion
+- [CHANGELOG.md](./CHANGELOG.md) - Version history
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - Deployment guide
+- [VPS_DEPLOYMENT.md](./VPS_DEPLOYMENT.md) - VPS-specific deployment
+
+---
+
+## 🧪 Testing
+
+### E2E Tests Cover:
+- Emergency contacts visibility on all pages
+- Homepage content and navigation
+- Services page functionality
+- Safety page critical information
+- Contact form submissions
+- FAQ search and filtering
+- Mobile responsiveness
+- Accessibility (ARIA labels, keyboard navigation)
+
+```bash
+# Run all E2E tests
+bun run test
+
+# Run with visual UI
+bun run test:ui
+
+# Run specific test file
+bun run test tests/e2e/gpl-website.spec.ts
+```
+
+---
+
 ## 🤝 Contributing
+
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a pull request
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+3. Commit changes: `git commit -m 'feat: add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+Please follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
 ---
-Built with ❤️ using [KareTech Stack](https://github.com/kareemschultz/karetech-stack)
+
+## 📄 License
+
+This project is proprietary software developed for Guyana Power & Light Inc.
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with [KareTech Stack](https://github.com/kareemschultz/karetech-stack)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- Icons from [Lucide](https://lucide.dev)
+
+---
+
+**Guyana Power & Light Inc.** - *Powering Guyana's Future*
