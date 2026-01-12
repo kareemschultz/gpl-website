@@ -5,328 +5,330 @@
 @tailwind utilities;
 
 @layer base {
-:root {
-/* GPL Branding Theme - Green/Gold for Power & Energy */
---background: 0 0% 100%;
---foreground: 150 10% 10%;
---card: 0 0% 100%;
---card-foreground: 150 10% 10%;
---popover: 0 0% 100%;
---popover-foreground: 150 10% 10%;
-/* Muted colors with green undertone */
---muted: 150 5% 96%;
---muted-foreground: 150 5% 45%;
-/* GPL Green primary colors - represents power/energy */
---primary: 142 76% 36%;
---primary-foreground: 0 0% 100%;
-/* Secondary - Gold accent for warmth */
---secondary: 45 93% 47%;
---secondary-foreground: 0 0% 10%;
-/* Accent - Light green */
---accent: 150 40% 94%;
---accent-foreground: 150 50% 20%;
-/* Destructive - Emergency red */
---destructive: 0 84% 60%;
---destructive-foreground: 0 0% 100%;
-/* Borders */
---border: 150 10% 88%;
---input: 150 10% 88%;
---ring: 142 76% 36%;
-/* Radius */
---radius: 0.75rem;
-/* Chart colors for data visualization */
---chart-1: 142 76% 36%;
---chart-2: 45 93% 47%;
---chart-3: 200 95% 40%;
---chart-4: 0 84% 60%;
---chart-5: 262 83% 58%;
-/* GPL Brand Colors - for direct use */
---gpl-green: 142 76% 36%;
---gpl-gold: 45 93% 47%;
---gpl-dark: 150 30% 15%;
---gpl-light: 150 20% 97%;
---emergency-red: 0 84% 50%;
+  :root {
+    /* Maia Blue Theme with Zinc Base - HSL format */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+    /* Blue primary - matching GPL's blue branding */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 221 83% 53%;
+    --radius: 0.625rem;
+    /* Chart colors */
+    --chart-1: 221 83% 53%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 280 65% 60%;
+    /* GPL Emergency Colors - kept for safety-critical UI */
+    --emergency-red: 0 84% 50%;
+    --gpl-green: 142 76% 36%;
+    --gpl-gold: 45 93% 47%;
+  }
+
+  .dark {
+    /* Maia Blue Dark Theme - HSL format */
+    --background: 240 10% 10%;
+    --foreground: 0 0% 98%;
+    --card: 240 6% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 6% 15%;
+    --popover-foreground: 0 0% 98%;
+    /* Blue primary for dark mode */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 240 4% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4% 20%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 4% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 20%;
+    --input: 240 4% 20%;
+    --ring: 217 91% 60%;
+    /* Dark mode chart colors */
+    --chart-1: 217 91% 60%;
+    --chart-2: 160 55% 50%;
+    --chart-3: 30 75% 60%;
+    --chart-4: 0 63% 55%;
+    --chart-5: 280 60% 65%;
+    /* GPL Emergency Colors - dark mode */
+    --emergency-red: 0 70% 55%;
+    --gpl-green: 142 70% 45%;
+    --gpl-gold: 45 85% 55%;
+  }
 }
-.dark {
-/* GPL Dark Mode Theme */
---background: 150 15% 6%;
---foreground: 0 0% 98%;
---card: 150 15% 8%;
---card-foreground: 0 0% 98%;
---popover: 150 15% 8%;
---popover-foreground: 0 0% 98%;
-/* Dark mode muted */
---muted: 150 10% 16%;
---muted-foreground: 150 5% 65%;
-/* Brighter green for dark mode */
---primary: 142 70% 45%;
---primary-foreground: 150 20% 5%;
-/* Secondary gold */
---secondary: 45 85% 55%;
---secondary-foreground: 45 90% 10%;
---accent: 150 15% 16%;
---accent-foreground: 0 0% 98%;
-/* Emergency colors */
---destructive: 0 70% 50%;
---destructive-foreground: 0 0% 98%;
-/* Borders */
---border: 150 10% 18%;
---input: 150 10% 18%;
---ring: 142 70% 45%;
-/* Dark mode chart colors */
---chart-1: 142 70% 45%;
---chart-2: 45 85% 55%;
---chart-3: 200 85% 50%;
---chart-4: 0 70% 55%;
---chart-5: 262 70% 55%;
-/* GPL Brand Colors - Dark mode adjustments */
---gpl-green: 142 70% 45%;
---gpl-gold: 45 85% 55%;
---gpl-dark: 150 20% 95%;
---gpl-light: 150 15% 10%;
---emergency-red: 0 70% 55%;
-}
-}
+
 @layer base {
-* {
-@apply border-border;
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Figtree', sans-serif;
+    font-feature-settings: 'cv03', 'cv04', 'cv11';
+  }
+  /* Smooth focus indicators for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
 }
-body {
-@apply bg-background text-foreground;
 
-font-family: 'Figtree', sans-serif;
-font-feature-settings: 'cv03', 'cv04', 'cv11';
-
-}
-/* Smooth focus indicators for accessibility */
-*:focus-visible {
-@apply outline-2 outline-offset-2 outline-ring;
-}
-}
 /* Maia theme specific component styles */
 @layer components {
-/* Soft, rounded buttons with generous spacing */
-.btn-primary {
-@apply bg-primary text-primary-foreground hover:bg-primary/90
-px-6 py-3 rounded-xl font-semibold transition-all duration-300
-shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border-0;
-}
-.btn-secondary {
-@apply bg-secondary text-secondary-foreground hover:bg-secondary/80
-px-6 py-3 rounded-xl font-semibold transition-all duration-300
-border border-border/50 shadow-md hover:shadow-lg;
-}
-.btn-outline {
-@apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground
-px-6 py-3 rounded-xl font-semibold transition-all duration-300
-shadow-sm hover:shadow-md;
-}
-/* Soft card styling with generous spacing */
-.card {
-@apply bg-card text-card-foreground rounded-2xl border border-border/50
-shadow-sm hover:shadow-lg transition-all duration-300 p-6;
-}
-.card-header {
-@apply pb-4 space-y-1.5;
-}
-.card-title {
-@apply text-xl font-semibold leading-none tracking-tight;
-}
-.card-description {
-@apply text-sm text-muted-foreground;
-}
-.card-content {
-@apply pt-0;
-}
-.card-footer {
-@apply flex items-center pt-4;
-}
-/* Menu styling based on menuAccent preference */
+  /* Soft, rounded buttons with generous spacing */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90
+      px-6 py-3 rounded-xl font-semibold transition-all duration-300
+      shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border-0;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80
+      px-6 py-3 rounded-xl font-semibold transition-all duration-300
+      border border-border/50 shadow-md hover:shadow-lg;
+  }
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground
+      px-6 py-3 rounded-xl font-semibold transition-all duration-300
+      shadow-sm hover:shadow-md;
+  }
 
-.menu-item {
-@apply px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200
-hover:bg-muted hover:text-foreground
-focus:bg-muted focus:text-foreground focus:outline-none;
-}
-.menu-item-active {
-@apply bg-muted text-foreground;
+  /* Soft card styling with generous spacing */
+  .card {
+    @apply bg-card text-card-foreground rounded-2xl border border-border/50
+      shadow-sm hover:shadow-lg transition-all duration-300 p-6;
+  }
+  .card-header {
+    @apply pb-4 space-y-1.5;
+  }
+  .card-title {
+    @apply text-xl font-semibold leading-none tracking-tight;
+  }
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+  .card-content {
+    @apply pt-0;
+  }
+  .card-footer {
+    @apply flex items-center pt-4;
+  }
+
+  /* Menu styling - subtle accent */
+  .menu-item {
+    @apply px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200
+      hover:bg-muted hover:text-foreground
+      focus:bg-muted focus:text-foreground focus:outline-none;
+  }
+  .menu-item-active {
+    @apply bg-muted text-foreground;
+  }
+
+  /* Soft input styling */
+  .input {
+    @apply flex h-10 w-full rounded-xl border border-input bg-background px-4 py-2
+      text-sm ring-offset-background transition-colors duration-200
+      file:border-0 file:bg-transparent file:text-sm file:font-medium
+      placeholder:text-muted-foreground
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Soft select styling */
+  .select-trigger {
+    @apply flex h-10 w-full items-center justify-between rounded-xl border border-input
+      bg-background px-4 py-2 text-sm ring-offset-background
+      placeholder:text-muted-foreground
+      focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Generous spacing for forms */
+  .form-item {
+    @apply space-y-2;
+  }
+  .form-label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+  .form-description {
+    @apply text-sm text-muted-foreground;
+  }
+  .form-message {
+    @apply text-sm font-medium text-destructive;
+  }
 }
 
-/* Soft input styling */
-.input {
-@apply flex h-10 w-full rounded-xl border border-input bg-background px-4 py-2
-text-sm ring-offset-background transition-colors duration-200
-file:border-0 file:bg-transparent file:text-sm file:font-medium
-placeholder:text-muted-foreground
-focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-disabled:cursor-not-allowed disabled:opacity-50;
-}
-/* Soft select styling */
-.select-trigger {
-@apply flex h-10 w-full items-center justify-between rounded-xl border border-input
-bg-background px-4 py-2 text-sm ring-offset-background
-placeholder:text-muted-foreground
-focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
-disabled:cursor-not-allowed disabled:opacity-50;
-}
-/* Generous spacing for forms */
-.form-item {
-@apply space-y-2;
-}
-.form-label {
-@apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
-}
-.form-description {
-@apply text-sm text-muted-foreground;
-}
-.form-message {
-@apply text-sm font-medium text-destructive;
-}
-}
 /* Maia theme utilities for enhanced UX */
 @layer utilities {
-/* Soft animations for friendlier interactions */
-.animate-soft-bounce {
-animation: soft-bounce 0.6s ease-in-out;
+  /* Soft animations for friendlier interactions */
+  .animate-soft-bounce {
+    animation: soft-bounce 0.6s ease-in-out;
+  }
+  @keyframes soft-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .animate-soft-pulse {
+    animation: soft-pulse 2s ease-in-out infinite;
+  }
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Gentle focus states */
+  .focus-soft {
+    @apply focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Soft shadows for depth */
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  .shadow-soft-lg {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Text gradients for modern appeal */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Soft borders */
+  .border-soft {
+    @apply border border-border/30;
+  }
 }
-@keyframes soft-bounce {
-0%, 100% { transform: translateY(0); }
-50% { transform: translateY(-4px); }
-}
-.animate-soft-pulse {
-animation: soft-pulse 2s ease-in-out infinite;
-}
-@keyframes soft-pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.8; }
-}
-/* Gentle focus states */
-.focus-soft {
-@apply focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
-}
-/* Soft shadows for depth */
-.shadow-soft {
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-.shadow-soft-lg {
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.12);
-}
-/* Text gradients for modern appeal */
-.text-gradient-primary {
-background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-color: transparent;
-}
-/* Soft borders */
-.border-soft {
-@apply border border-border/30;
-}
-}
-/* Component library specific enhancements */
 
 /* Base UI enhancements for Maia theme */
 @layer components {
-/* Base UI button enhancements */
-[data-ui="Button"] {
-@apply rounded-xl transition-all duration-300;
-}
-[data-ui="Button"][data-variant="solid"] {
-@apply shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
-}
-/* Base UI form field enhancements */
-[data-ui="Field.Root"] {
-@apply space-y-2;
-}
-[data-ui="Field.Control"] {
-@apply rounded-xl border-border/50 transition-all duration-200;
-}
-/* Base UI select enhancements */
-[data-ui="Select.Trigger"] {
-@apply rounded-xl border-border/50;
-}
-[data-ui="Select.Content"] {
-@apply rounded-xl border border-border shadow-soft-lg;
-}
-/* Base UI dialog enhancements */
-[data-ui="Dialog.Content"] {
-@apply rounded-2xl border border-border shadow-soft-lg;
-}
-/* Base UI popover enhancements */
-[data-ui="Popover.Content"] {
-@apply rounded-xl border border-border shadow-soft-lg;
-}
+  /* Base UI button enhancements */
+  [data-ui="Button"] {
+    @apply rounded-xl transition-all duration-300;
+  }
+  [data-ui="Button"][data-variant="solid"] {
+    @apply shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  /* Base UI form field enhancements */
+  [data-ui="Field.Root"] {
+    @apply space-y-2;
+  }
+  [data-ui="Field.Control"] {
+    @apply rounded-xl border-border/50 transition-all duration-200;
+  }
+
+  /* Base UI select enhancements */
+  [data-ui="Select.Trigger"] {
+    @apply rounded-xl border-border/50;
+  }
+  [data-ui="Select.Content"] {
+    @apply rounded-xl border border-border shadow-soft-lg;
+  }
+
+  /* Base UI dialog enhancements */
+  [data-ui="Dialog.Content"] {
+    @apply rounded-2xl border border-border shadow-soft-lg;
+  }
+
+  /* Base UI popover enhancements */
+  [data-ui="Popover.Content"] {
+    @apply rounded-xl border border-border shadow-soft-lg;
+  }
 }
 
-/* GPL Brand Utilities */
+/* GPL Emergency & Brand Utilities - CRITICAL: Keep for safety UI */
 @layer utilities {
-/* GPL Brand colors as utilities */
-.bg-gpl-green {
-background-color: hsl(var(--gpl-green));
-}
-.bg-gpl-gold {
-background-color: hsl(var(--gpl-gold));
-}
-.text-gpl-green {
-color: hsl(var(--gpl-green));
-}
-.text-gpl-gold {
-color: hsl(var(--gpl-gold));
-}
-.border-gpl-green {
-border-color: hsl(var(--gpl-green));
-}
-.border-gpl-gold {
-border-color: hsl(var(--gpl-gold));
-}
-/* Emergency styling */
-.emergency-banner {
-@apply bg-destructive text-destructive-foreground;
-}
-.emergency-text {
-color: hsl(var(--emergency-red));
-font-weight: 700;
-}
-.emergency-pulse {
-animation: emergency-pulse 2s ease-in-out infinite;
-}
-@keyframes emergency-pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.7; }
-}
-/* GPL gradient backgrounds */
-.bg-gpl-gradient {
-background: linear-gradient(135deg, hsl(var(--gpl-green)), hsl(var(--gpl-gold)));
-}
-.bg-gpl-gradient-subtle {
-background: linear-gradient(135deg, hsl(var(--gpl-green) / 0.1), hsl(var(--gpl-gold) / 0.1));
-}
-/* Power/Energy themed decorations */
-.power-line {
-border-top: 2px dashed hsl(var(--gpl-green) / 0.5);
-}
-.power-glow {
-box-shadow: 0 0 20px hsl(var(--gpl-gold) / 0.3);
-}
+  /* Emergency styling - safety critical */
+  .emergency-banner {
+    @apply bg-destructive text-destructive-foreground;
+  }
+  .emergency-text {
+    color: hsl(var(--emergency-red));
+    font-weight: 700;
+  }
+  .emergency-pulse {
+    animation: emergency-pulse 2s ease-in-out infinite;
+  }
+  @keyframes emergency-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* GPL Brand colors as utilities */
+  .bg-gpl-green {
+    background-color: hsl(var(--gpl-green));
+  }
+  .bg-gpl-gold {
+    background-color: hsl(var(--gpl-gold));
+  }
+  .text-gpl-green {
+    color: hsl(var(--gpl-green));
+  }
+  .text-gpl-gold {
+    color: hsl(var(--gpl-gold));
+  }
+  .border-gpl-green {
+    border-color: hsl(var(--gpl-green));
+  }
+  .border-gpl-gold {
+    border-color: hsl(var(--gpl-gold));
+  }
+
+  /* GPL gradient backgrounds */
+  .bg-gpl-gradient {
+    background: linear-gradient(135deg, hsl(var(--gpl-green)), hsl(var(--gpl-gold)));
+  }
+  .bg-gpl-gradient-subtle {
+    background: linear-gradient(135deg, hsl(var(--gpl-green) / 0.1), hsl(var(--gpl-gold) / 0.1));
+  }
+
+  /* Power/Energy themed decorations */
+  .power-line {
+    border-top: 2px dashed hsl(var(--gpl-green) / 0.5);
+  }
+  .power-glow {
+    box-shadow: 0 0 20px hsl(var(--gpl-gold) / 0.3);
+  }
 }
 
 /* Print styles for professional output */
 @media print {
-.no-print {
-display: none !important;
-}
-body {
-font-size: 12pt;
-line-height: 1.4;
-}
-.card {
-@apply border border-gray-300 shadow-none;
-break-inside: avoid;
-}
-/* Print emergency contacts prominently */
-.emergency-contacts {
-border: 2px solid black !important;
-padding: 1rem;
-}
+  .no-print {
+    display: none !important;
+  }
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  .card {
+    @apply border border-gray-300 shadow-none;
+    break-inside: avoid;
+  }
+  /* Print emergency contacts prominently */
+  .emergency-contacts {
+    border: 2px solid black !important;
+    padding: 1rem;
+  }
 }

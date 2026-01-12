@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'
 import { EmergencyContacts } from '@/components/emergency-contacts'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface NavItem {
   label: string
@@ -68,6 +69,9 @@ export function SiteHeader() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Emergency Contacts - CRITICAL: Always visible */}
             <EmergencyContacts />
 

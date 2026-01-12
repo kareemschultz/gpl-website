@@ -1,6 +1,7 @@
 import { createRootRoute, Outlet, useRouterState } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { AuthProvider } from '@/components/auth/auth-provider'
+import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { EmergencyBanner } from '@/components/emergency-banner'
@@ -23,8 +24,9 @@ export const Route = createRootRoute({
 
 function RootLayout() {
   return (
-    <AuthProvider>
-      <div className="min-h-screen flex flex-col">
+    <ThemeProvider defaultTheme="system" storageKey="gpl-ui-theme">
+      <AuthProvider>
+        <div className="min-h-screen flex flex-col">
         {/* Site Header with Emergency Contacts */}
         <SiteHeader />
 
@@ -42,7 +44,8 @@ function RootLayout() {
 
       {/* Dev Tools (only in development) */}
       {import.meta.env.DEV && <TanStackRouterDevtools position="bottom-right" />}
-    </AuthProvider>
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 
