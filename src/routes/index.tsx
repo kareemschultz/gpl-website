@@ -105,8 +105,8 @@ function HeroSection() {
                   href={getPhoneHref(contact.primaryNumber)}
                   className={cn(
                     'inline-flex items-center gap-2 px-4 py-2',
-                    'bg-destructive text-destructive-foreground rounded-full',
-                    'font-bold hover:bg-destructive/90 transition-colors'
+                    'bg-amber-500 text-white rounded-full',
+                    'font-bold hover:bg-amber-600 transition-colors'
                   )}
                 >
                   <PhoneIcon className="w-4 h-4" />

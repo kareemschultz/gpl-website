@@ -58,8 +58,8 @@ export function EmergencyBanner({
     <div
       className={cn(
         'relative overflow-hidden',
-        'bg-gradient-to-r from-destructive to-destructive/90',
-        'text-destructive-foreground',
+        'bg-amber-600 dark:bg-amber-700',
+        'text-white',
         'transition-all duration-300 ease-in-out',
         isAnimatingOut && 'opacity-0 -translate-y-full',
         className
@@ -85,7 +85,7 @@ export function EmergencyBanner({
                   key={contact.region}
                   href={getPhoneHref(contact.primaryNumber)}
                   className={cn(
-                    'inline-flex items-center gap-1.5 px-3 py-1',
+                    'inline-flex items-center gap-1.5 px-3 py-1.5',
                     'bg-white/20 hover:bg-white/30 rounded-full',
                     'text-sm font-semibold transition-colors',
                     'focus:outline-none focus:ring-2 focus:ring-white/50'
@@ -119,7 +119,7 @@ export function EmergencyBanner({
 
         {/* Safety tip */}
         <div className="mt-2 text-center sm:text-left">
-          <p className="text-xs sm:text-sm opacity-90">
+          <p className="text-xs sm:text-sm text-white/90">
             <strong>Safety First:</strong> Stay away from downed power lines!
             Call immediately and keep others away.{' '}
             <a
@@ -150,19 +150,19 @@ export function EmergencyBannerMinimal({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'bg-destructive/10 border-l-4 border-destructive',
+        'bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500',
         'px-4 py-2 rounded-r',
         className
       )}
       role="alert"
     >
       <div className="flex items-center gap-2 text-sm">
-        <AlertIcon className="w-4 h-4 text-destructive flex-shrink-0" />
-        <span>
+        <AlertIcon className="w-4 h-4 text-amber-600 dark:text-amber-500 flex-shrink-0" />
+        <span className="text-amber-900 dark:text-amber-100">
           <strong>Power Emergency?</strong> Call{' '}
           <a
             href={getPhoneHref(primary.primaryNumber)}
-            className="font-bold text-destructive hover:underline"
+            className="font-bold text-amber-700 dark:text-amber-400 hover:underline"
           >
             {primary.primaryNumber}
           </a>

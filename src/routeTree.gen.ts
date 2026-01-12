@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StatusRouteImport } from './routes/status'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -26,6 +27,11 @@ import { Route as AdminFaqsRouteImport } from './routes/admin/faqs'
 import { Route as AdminEmergencyContactsRouteImport } from './routes/admin/emergency-contacts'
 import { Route as AdminContactsRouteImport } from './routes/admin/contacts'
 
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/safety': typeof SafetyRoute
   '/services': typeof ServicesRoute
+  '/status': typeof StatusRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/emergency-contacts': typeof AdminEmergencyContactsRoute
   '/admin/faqs': typeof AdminFaqsRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/safety': typeof SafetyRoute
   '/services': typeof ServicesRoute
+  '/status': typeof StatusRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/emergency-contacts': typeof AdminEmergencyContactsRoute
   '/admin/faqs': typeof AdminFaqsRoute
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/safety': typeof SafetyRoute
   '/services': typeof ServicesRoute
+  '/status': typeof StatusRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/emergency-contacts': typeof AdminEmergencyContactsRoute
   '/admin/faqs': typeof AdminFaqsRoute
@@ -172,6 +181,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/safety'
     | '/services'
+    | '/status'
     | '/admin/contacts'
     | '/admin/emergency-contacts'
     | '/admin/faqs'
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/safety'
     | '/services'
+    | '/status'
     | '/admin/contacts'
     | '/admin/emergency-contacts'
     | '/admin/faqs'
@@ -208,6 +219,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/safety'
     | '/services'
+    | '/status'
     | '/admin/contacts'
     | '/admin/emergency-contacts'
     | '/admin/faqs'
@@ -227,6 +239,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   SafetyRoute: typeof SafetyRoute
   ServicesRoute: typeof ServicesRoute
+  StatusRoute: typeof StatusRoute
   AdminContactsRoute: typeof AdminContactsRoute
   AdminEmergencyContactsRoute: typeof AdminEmergencyContactsRoute
   AdminFaqsRoute: typeof AdminFaqsRoute
@@ -240,6 +253,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -363,6 +383,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   SafetyRoute: SafetyRoute,
   ServicesRoute: ServicesRoute,
+  StatusRoute: StatusRoute,
   AdminContactsRoute: AdminContactsRoute,
   AdminEmergencyContactsRoute: AdminEmergencyContactsRoute,
   AdminFaqsRoute: AdminFaqsRoute,
