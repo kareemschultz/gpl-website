@@ -1,6 +1,7 @@
 # Local tool configurations
 .claude/
 .serena/
+.playwright-mcp/
 
 # Auth secrets (use .env.example as template)
 .env.auth
